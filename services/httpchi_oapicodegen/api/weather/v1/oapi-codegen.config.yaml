@@ -1,0 +1,7 @@
+package: weather_v1
+generate:
+  models: true
+  chi-server: true
+  client: true
+  embedded-spec: true
+output: ./pkg/openapi/weather/v1/weather.gen.go

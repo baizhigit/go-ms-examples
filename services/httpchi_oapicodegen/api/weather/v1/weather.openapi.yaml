@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: WeatherService API
+  version: 1.0.0
+  description: API для работы с данными о погоде
+x-oapi-codegen:
+  target: ./pkg/openapi/weather/v1
+  package: weather_v1
+tags:
+  - name: Weather
+    description: Операции с данными о погоде — получение и обновление информации
+
+components:
+  schemas:
+    Weather:
+      $ref: ./components/schemas/weather.yaml
+    UpdateWeatherRequest:
+      $ref: ./components/update_weather_request.yaml
+    NotFoundError:
+      $ref: ./components/errors/not_found_error.yaml
+    BadRequestError:
+      $ref: ./components/errors/bad_request_error.yaml
+    InternalServerError:
+      $ref: ./components/errors/internal_server_error.yaml
+    GenericError:
+      $ref: ./components/errors/generic_error.yaml
+
+paths:
+  /api/v1/weather/{city}:
+    $ref: ./paths/weather_by_city.yaml
